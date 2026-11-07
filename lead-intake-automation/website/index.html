@@ -3,209 +3,156 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Brightline Studio | Start a project</title>
-  <meta name="description" content="Tell us about your project and we will get back to you within one business day.">
-  <style>
-    :root {
-      --bg: #f7f6f2;
-      --surface: #ffffff;
-      --text: #1d1d1b;
-      --muted: #6a6a64;
-      --border: #dcdad2;
-      --accent: #1f5eff;
-      --accent-text: #ffffff;
-      --error: #b3261e;
-      --success: #1b7a43;
-    }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #121211;
-        --surface: #1c1c1a;
-        --text: #f0efe9;
-        --muted: #a3a29a;
-        --border: #34342f;
-        --accent: #6c93ff;
-        --accent-text: #0b0b0a;
-        --error: #ff8a80;
-        --success: #6fd49a;
-      }
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--text);
-      font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-    }
-    main { max-width: 640px; margin: 0 auto; padding: 48px 16px 64px; }
-    .brand { font-weight: 700; letter-spacing: 0.02em; margin-bottom: 32px; }
-    h1 { font-size: 2rem; line-height: 1.2; margin: 0 0 8px; }
-    .lede { color: var(--muted); margin: 0 0 32px; }
-    form { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 24px; }
-    .row { display: grid; gap: 16px; grid-template-columns: 1fr 1fr; }
-    @media (max-width: 520px) { .row { grid-template-columns: 1fr; } }
-    label { display: block; font-weight: 600; font-size: 0.9rem; margin-bottom: 6px; }
-    .field { margin-bottom: 16px; }
-    input[type="text"], input[type="email"], select, textarea {
-      width: 100%;
-      padding: 10px 12px;
-      font: inherit;
-      color: var(--text);
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-    }
-    textarea { min-height: 110px; resize: vertical; }
-    input:focus-visible, select:focus-visible, textarea:focus-visible, button:focus-visible {
-      outline: 2px solid var(--accent);
-      outline-offset: 2px;
-    }
-    .consent { display: flex; gap: 10px; align-items: flex-start; font-size: 0.9rem; color: var(--muted); margin: 8px 0 20px; }
-    .consent input { margin-top: 4px; }
-    .consent label { font-weight: 400; font-size: inherit; margin: 0; }
-    button {
-      width: 100%;
-      padding: 12px 16px;
-      font: inherit;
-      font-weight: 600;
-      color: var(--accent-text);
-      background: var(--accent);
-      border: 0;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-    button:disabled { opacity: 0.6; cursor: not-allowed; }
-    #status { margin-top: 16px; min-height: 1.5em; font-weight: 600; }
-    #status.error { color: var(--error); }
-    #status.success { color: var(--success); }
-    /* Honeypot: hidden from people, visible to naive bots */
-    .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
-    footer { margin-top: 32px; color: var(--muted); font-size: 0.85rem; }
-  </style>
+  <title>Brightline Studio | Websites and automation for growing teams</title>
+  <meta name="description" content="Brightline Studio designs and builds websites, then wires up the systems behind them so every enquiry is captured, scored and routed in minutes.">
+  <meta name="robots" content="noindex">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css">
+  <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
-  <main>
-    <div class="brand">Brightline Studio</div>
-    <h1>Start a project</h1>
-    <p class="lede">Tell us a little about what you need. We reply within one business day.</p>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="wrap bar">
+      <a class="brand" href="/" aria-label="Brightline Studio, home">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><rect class="mark-bg" width="32" height="32" rx="8"/><path class="mark-line" d="M8 23 L24 9" fill="none" stroke-width="3.5" stroke-linecap="round"/></svg>
+        Brightline Studio
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+      <nav id="nav" aria-label="Main">
+        <a href="/services">Services</a>
+        <a href="/work">Work</a>
+        <a href="/about">About</a>
+        <a class="btn" href="/contact">Start a project</a>
+      </nav>
+    </div>
+  </header>
 
-    <form id="lead-form" novalidate>
-      <div class="row">
-        <div class="field">
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" autocomplete="name" required>
+  <main id="main">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="eyebrow">Web design &amp; automation studio</p>
+          <h1>Websites that turn visitors into <span class="hl">conversations</span>.</h1>
+          <p class="lede">We design and build sites for growing companies, then wire up the systems behind them, so every enquiry is captured, scored and in front of the right person within minutes.</p>
+          <div class="actions">
+            <a class="btn" href="/contact">Start a project</a>
+            <a class="btn btn-ghost" href="/work">See our work</a>
+          </div>
         </div>
-        <div class="field">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" autocomplete="email" required>
+        <aside class="lead-card" aria-label="Example of scored enquiries">
+          <h2>Example: this week's enquiries</h2>
+          <ul>
+            <li><span class="who">Fernhill Co.<small>200+ staff · $20k+ · this month</small></span><span class="score">85</span><span class="tier hot">Hot</span></li>
+            <li><span class="who">Oakline Studio<small>11-50 staff · $5k-$20k · 1-3 months</small></span><span class="score">55</span><span class="tier warm">Warm</span></li>
+            <li><span class="who">Sam P.<small>1-10 staff · under $1k · 3+ months</small></span><span class="score">30</span><span class="tier">Cold</span></li>
+          </ul>
+          <p class="note">Hot leads trigger an instant email to the team. This is how the form on this site works.</p>
+        </aside>
+      </div>
+    </section>
+
+    <div class="promises">
+      <div class="wrap">
+        <ul>
+          <li>Reply within one business day</li>
+          <li>Fixed-scope quotes, no surprises</li>
+          <li>You own everything we build</li>
+        </ul>
+      </div>
+    </div>
+
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">What we do</p>
+          <h2>A site is only half the job.</h2>
+          <p class="lede">A beautiful page that drops enquiries into a shared inbox still loses customers. We build both halves.</p>
+        </div>
+        <div class="grid">
+          <article class="card">
+            <h3>Websites that convert</h3>
+            <p>Fast, accessible, easy-to-edit sites with a clear path from first visit to first conversation.</p>
+            <p class="more"><a href="/services#websites">Websites</a></p>
+          </article>
+          <article class="card">
+            <h3>Lead capture &amp; automation</h3>
+            <p>Forms that validate, score and route every enquiry, with the right alert reaching the right person.</p>
+            <p class="more"><a href="/services#automation">Automation</a></p>
+          </article>
+          <article class="card">
+            <h3>Brand identity</h3>
+            <p>A logo, palette and voice that look consistent from the website to the invoice.</p>
+            <p class="more"><a href="/services#brand">Brand</a></p>
+          </article>
         </div>
       </div>
+    </section>
 
-      <div class="field">
-        <label for="company">Company</label>
-        <input type="text" id="company" name="company" autocomplete="organization" required>
-      </div>
-
-      <div class="row">
-        <div class="field">
-          <label for="companySize">Company size</label>
-          <select id="companySize" name="companySize" required>
-            <option value="" disabled selected>Select</option>
-            <option>1-10</option>
-            <option>11-50</option>
-            <option>51-200</option>
-            <option>200+</option>
-          </select>
+    <section class="alt">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">How it works</p>
+          <h2>From first message to launch in four steps.</h2>
         </div>
-        <div class="field">
-          <label for="budget">Budget</label>
-          <select id="budget" name="budget" required>
-            <option value="" disabled selected>Select</option>
-            <option>Under $1k</option>
-            <option>$1k-$5k</option>
-            <option>$5k-$20k</option>
-            <option>$20k+</option>
-          </select>
+        <ol class="steps">
+          <li><h3>Tell us</h3><p>Share your goals, budget and timeline through the form. It takes two minutes.</p></li>
+          <li><h3>Scope</h3><p>We reply within one business day with questions, then send a fixed-scope quote.</p></li>
+          <li><h3>Build</h3><p>We work in short sprints and show progress every week, so nothing is a surprise.</p></li>
+          <li><h3>Launch</h3><p>We go live, hand over everything you own, and stay on hand for support.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Sample work</p>
+          <h2>The kind of projects we build.</h2>
+        </div>
+        <div class="grid">
+          <article class="card">
+            <ul class="tags"><li>Website</li><li>Automation</li></ul>
+            <h3>Fernhill Dental</h3>
+            <p>Booking requests from a shared inbox to a prioritised queue.</p>
+          </article>
+          <article class="card">
+            <ul class="tags"><li>Website</li><li>Lead scoring</li></ul>
+            <h3>Oakline Outfitters</h3>
+            <p>A wholesale enquiry form that qualifies buyers by order size.</p>
+          </article>
+          <article class="card">
+            <ul class="tags"><li>Brand</li><li>Website</li></ul>
+            <h3>Tidal Accounting</h3>
+            <p>A plain-language rebrand with fixed-price packages.</p>
+          </article>
+        </div>
+        <p style="margin-top:24px"><a href="/work">See all sample projects</a></p>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="cta">
+          <h2>Have a project in mind?</h2>
+          <p>Tell us what you need. We reply within one business day, even if the answer is "not a fit".</p>
+          <a class="btn" href="/contact">Start a project</a>
         </div>
       </div>
-
-      <div class="field">
-        <label for="timeline">Timeline</label>
-        <select id="timeline" name="timeline" required>
-          <option value="" disabled selected>Select</option>
-          <option>This month</option>
-          <option>1-3 months</option>
-          <option>3+ months</option>
-        </select>
-      </div>
-
-      <div class="field">
-        <label for="message">Message <span style="font-weight:400;color:var(--muted)">(optional)</span></label>
-        <textarea id="message" name="message" maxlength="2000"></textarea>
-      </div>
-
-      <div class="hp" aria-hidden="true">
-        <label for="website">Leave this field empty</label>
-        <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
-      </div>
-
-      <div class="consent">
-        <input type="checkbox" id="consent" name="consent" required>
-        <label for="consent">I agree to be contacted about my project.</label>
-      </div>
-
-      <button type="submit" id="submit">Send</button>
-      <div id="status" role="status" aria-live="polite"></div>
-    </form>
-
-    <footer>Demo project. Submissions are used only to test this automation.</footer>
+    </section>
   </main>
 
-  <script>
-    const form = document.getElementById('lead-form');
-    const button = document.getElementById('submit');
-    const status = document.getElementById('status');
-
-    function show(message, kind) {
-      status.textContent = message;
-      status.className = kind;
-    }
-
-    form.addEventListener('submit', async (event) => {
-      event.preventDefault();
-      show('', '');
-
-      if (!form.checkValidity()) {
-        form.reportValidity();
-        return;
-      }
-
-      const data = Object.fromEntries(new FormData(form));
-      data.consent = form.elements.consent.checked;
-
-      button.disabled = true;
-      button.textContent = 'Sending...';
-
-      try {
-        const response = await fetch('/api/lead', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(data),
-        });
-        const result = await response.json().catch(() => ({}));
-        if (response.ok) {
-          form.reset();
-          show('Thanks! We will be in touch within one business day.', 'success');
-        } else {
-          show(result.error || 'Something went wrong. Please try again.', 'error');
-        }
-      } catch (err) {
-        show('Network error. Please check your connection and try again.', 'error');
-      } finally {
-        button.disabled = false;
-        button.textContent = 'Send';
-      }
-    });
-  </script>
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="foot">
+        <div><strong>Brightline Studio</strong><p>Websites and automation for growing teams.</p></div>
+        <div><h2>Explore</h2><ul><li><a href="/services">Services</a></li><li><a href="/work">Work</a></li><li><a href="/about">About</a></li><li><a href="/contact">Contact</a></li></ul></div>
+        <div><h2>Legal</h2><ul><li><a href="/privacy">Privacy</a></li></ul></div>
+      </div>
+      <p class="fine">Brightline Studio is a fictional company created for a portfolio project. Submissions to the contact form are used only to test the lead automation behind it.</p>
+    </div>
+  </footer>
+  <script src="/site.js" defer></script>
 </body>
 </html>

@@ -27,15 +27,33 @@ Why a Vercel function sits in the middle: the n8n webhook URL and secret never r
 
 Tiers: **Hot** ≥ 70, **Warm** ≥ 40, otherwise **Cold**. Only Hot leads trigger the email.
 
+## The website
+
+The site is for **Brightline Studio**, a fictional web design and automation studio. Studios, consultancies, and B2B or home-service companies all use this kind of lead scoring, and a studio's budget, company-size and timeline questions fit it naturally.
+
+| Page | Purpose |
+|---|---|
+| `/` | Home: hero, services overview, process, sample work |
+| `/services` | Four services with typical budgets, and a diagram of how this site's form works |
+| `/work` | Three clearly labelled fictional sample projects |
+| `/about` | Story and principles |
+| `/contact` | The lead form, next steps and FAQ |
+| `/privacy`, `404` | Privacy note and error page |
+
+It is plain HTML and CSS with two small scripts, no build step. Pages are marked `noindex` because the company is fictional; remove the `robots` meta tag from each page to allow indexing.
+
 ## Repository layout
 
 ```
 workflow.json          n8n workflow (import into n8n)
 website/
-  index.html           contact form page
+  index.html, services.html, work.html, about.html,
+  contact.html, privacy.html, 404.html    site pages
+  styles.css, site.js, contact.js, favicon.svg
+  vercel.json          clean URLs (/services instead of /services.html)
   api/lead.js          Vercel function: validate, then forward to n8n
   lib/validate.js      field validation shared by the function and tests
-  test/lead.test.js    unit tests (npm test)
+  test/                unit tests and site checks (npm test)
 ```
 
 ## Setup
