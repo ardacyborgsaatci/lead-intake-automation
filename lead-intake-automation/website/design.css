@@ -51,7 +51,9 @@
 /* buttons: a black pill and a white pill with a ring; on the ink band they swap */
 .btn--primary:hover { background: color-mix(in oklab, var(--action) 82%, var(--bg)); }
 .btn--secondary { background: #fff; color: var(--ink); border-color: transparent; box-shadow: var(--ring), var(--sh-2); }
-.btn--secondary:hover { background: #f5f5f5; border-color: transparent; }
+/* the kit turns the second action into an underlined text link on phones; keep the white pill instead */
+.btn-row > .btn--secondary { background: #fff; text-decoration: none; }
+.btn--secondary:hover, .btn-row > .btn--secondary:hover { background: #f5f5f5; border-color: transparent; }
 .ground-inverse .btn--secondary { background: #fff; color: #171717; box-shadow: none; }
 .ground-inverse .btn--secondary:hover { background: #e5e5e5; }
 
@@ -74,3 +76,43 @@
 .link { color: var(--link); text-decoration-color: color-mix(in oklab, var(--link) 40%, transparent); }
 .link:hover { text-decoration-color: currentColor; }
 .ground-inverse .link { color: var(--ink); text-decoration-color: var(--line-strong); }
+
+/* background: the gradient pairs as soft washes behind a section (DESIGN.md: the gradient is the whole decoration).
+   Static and under the content; each wash fades out well inside its section, so no two sections meet at a seam. */
+:root { --g-blue: #007cf0; --g-cyan: #00dfd8; --g-violet: #7928ca; --g-pink: #ff0080; --g-coral: #ff4d4d; --g-amber: #f9cb28; }
+.wash { position: relative; isolation: isolate; }
+.wash::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; }
+/* the top of the page: the four hero stops side by side along the top edge */
+.wash--hero::before { background:
+  radial-gradient(ellipse 46% 62% at 6% 0%, color-mix(in srgb, var(--g-blue) 28%, transparent), transparent 70%),
+  radial-gradient(ellipse 40% 55% at 36% -4%, color-mix(in srgb, var(--g-cyan) 26%, transparent), transparent 70%),
+  radial-gradient(ellipse 42% 58% at 66% -4%, color-mix(in srgb, var(--g-violet) 24%, transparent), transparent 70%),
+  radial-gradient(ellipse 44% 60% at 96% 2%, color-mix(in srgb, var(--g-pink) 22%, transparent), transparent 70%); }
+/* develop pair: blue and cyan low left, a little violet high right */
+.wash--a::before { background:
+  radial-gradient(ellipse 38% 42% at 10% 62%, color-mix(in srgb, var(--g-blue) 18%, transparent), transparent 70%),
+  radial-gradient(ellipse 34% 40% at 36% 78%, color-mix(in srgb, var(--g-cyan) 16%, transparent), transparent 70%),
+  radial-gradient(ellipse 36% 40% at 92% 30%, color-mix(in srgb, var(--g-violet) 12%, transparent), transparent 70%); }
+/* ship pair: pink and coral low right, amber high left */
+.wash--b::before { background:
+  radial-gradient(ellipse 38% 42% at 90% 64%, color-mix(in srgb, var(--g-pink) 16%, transparent), transparent 70%),
+  radial-gradient(ellipse 34% 40% at 64% 80%, color-mix(in srgb, var(--g-coral) 14%, transparent), transparent 70%),
+  radial-gradient(ellipse 36% 40% at 8% 28%, color-mix(in srgb, var(--g-amber) 16%, transparent), transparent 70%); }
+/* the ink band: the same stops as a low glow on the dark */
+.wash--dark::before { background:
+  radial-gradient(ellipse 40% 45% at 6% 80%, color-mix(in srgb, var(--g-violet) 26%, transparent), transparent 70%),
+  radial-gradient(ellipse 36% 40% at 34% 92%, color-mix(in srgb, var(--g-blue) 20%, transparent), transparent 70%),
+  radial-gradient(ellipse 40% 45% at 96% 12%, color-mix(in srgb, var(--g-cyan) 14%, transparent), transparent 70%); }
+.wash--c::before { background:
+  radial-gradient(ellipse 40% 45% at 4% 40%, color-mix(in srgb, var(--g-cyan) 14%, transparent), transparent 70%),
+  radial-gradient(ellipse 40% 45% at 98% 60%, color-mix(in srgb, var(--g-amber) 16%, transparent), transparent 70%); }
+.wash--d::before { background:
+  radial-gradient(ellipse 40% 45% at 94% 70%, color-mix(in srgb, var(--g-blue) 14%, transparent), transparent 70%),
+  radial-gradient(ellipse 36% 40% at 6% 26%, color-mix(in srgb, var(--g-violet) 12%, transparent), transparent 70%); }
+.wash--e::before { background:
+  radial-gradient(ellipse 40% 45% at 6% 60%, color-mix(in srgb, var(--g-amber) 15%, transparent), transparent 70%),
+  radial-gradient(ellipse 40% 45% at 96% 30%, color-mix(in srgb, var(--g-coral) 13%, transparent), transparent 70%),
+  radial-gradient(ellipse 34% 40% at 60% 90%, color-mix(in srgb, var(--g-pink) 10%, transparent), transparent 70%); }
+.wash--f::before { background:
+  radial-gradient(ellipse 50% 70% at 20% 30%, color-mix(in srgb, var(--g-violet) 12%, transparent), transparent 70%),
+  radial-gradient(ellipse 50% 70% at 80% 30%, color-mix(in srgb, var(--g-cyan) 14%, transparent), transparent 70%); }
