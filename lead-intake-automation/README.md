@@ -43,15 +43,17 @@ The site is a one-page product site for **Brightline**, a fictional company that
 
 The old multi-page URLs (`/services`, `/work`, `/about`, `/contact`) redirect to the matching sections (see `website/vercel.json`).
 
-The design uses the taste-skill kit (`website/assets/`): no build step, no framework, three small scripts of the page's own (`contact.js` plus the kit's `system.js`, `motion.js` and `layout.js`). Brand icons (n8n, Vercel, Google Sheets, Gmail) are local SVG files in `website/assets/icons/`, fetched from pinned sources; they belong to their owners and only name tools the system really uses. Pages are marked `noindex` because the company is fictional; remove the `robots` meta tag from each page to allow indexing.
+The look follows `DESIGN.md` (a Vercel-inspired system: near-white canvas, ink `#171717` as the one action colour, Geist and Geist Mono, pill buttons, hairline rings with stacked shadows, one ink band, and a mesh gradient behind the hero window). It is set in `website/design.css` on top of the taste-skill kit (`website/assets/`): no build step, no framework, three small scripts of the page's own (`contact.js` plus the kit's `system.js`, `motion.js` and `layout.js`). Brand icons (n8n, Vercel, Google Sheets, Gmail) are local SVG files in `website/assets/icons/`, fetched from pinned sources; they belong to their owners and only name tools the system really uses. Pages are marked `noindex` because the company is fictional; remove the `robots` meta tag from each page to allow indexing.
 
 ## Repository layout
 
 ```
 workflow.json          n8n workflow (import into n8n)
+DESIGN.md              the design system the site follows
 website/
   index.html           the one-page site
   privacy.html, 404.html
+  design.css           the DESIGN.md look: palette, type, buttons, cards, nav
   contact.js           form handling: inline errors, then POST /api/lead
   assets/              design kit (CSS, scripts, diagram engine) and icons/
   favicon.svg
