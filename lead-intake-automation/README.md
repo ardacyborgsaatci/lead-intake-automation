@@ -29,28 +29,33 @@ Tiers: **Hot** ≥ 70, **Warm** ≥ 40, otherwise **Cold**. Only Hot leads trigg
 
 ## The website
 
-The site is for **Brightline Studio**, a fictional web design and automation studio. Studios, consultancies, and B2B or home-service companies all use this kind of lead scoring, and a studio's budget, company-size and timeline questions fit it naturally.
+The site is a one-page product site for **Brightline**, a fictional company that sells this lead-intake system to small businesses. The page shows the product it sells: a live-style enquiry list with scores, a diagram of the n8n workflow, plans and a FAQ, and the lead form at the end. The form on the page is the real one, so submitting it runs the whole pipeline above.
 
-| Page | Purpose |
+| Section | Purpose |
 |---|---|
-| `/` | Home: hero, services overview, process, sample work |
-| `/services` | Four services with typical budgets, and a diagram of how this site's form works |
-| `/work` | Three clearly labelled fictional sample projects |
-| `/about` | Story and principles |
-| `/contact` | The lead form, next steps and FAQ |
+| Hero | What is sold, for whom, with an enquiry-list window showing real scoring |
+| `#features`, `#alerts` | Lead scoring, the Google Sheets log, hot-lead alerts and spam checks |
+| `#process` | The four steps from form to inbox, with the workflow diagram |
+| `#pricing` | Setup and care plan (the prices are assumed for the demo) |
+| `#faq` | Short answers, plus the scoring points table |
+| `#brief` | The lead form |
 | `/privacy`, `404` | Privacy note and error page |
 
-It is plain HTML and CSS with two small scripts, no build step. Pages are marked `noindex` because the company is fictional; remove the `robots` meta tag from each page to allow indexing.
+The old multi-page URLs (`/services`, `/work`, `/about`, `/contact`) redirect to the matching sections (see `website/vercel.json`).
+
+The design uses the taste-skill kit (`website/assets/`): no build step, no framework, three small scripts of the page's own (`contact.js` plus the kit's `system.js`, `motion.js` and `layout.js`). Brand icons (n8n, Vercel, Google Sheets, Gmail) are local SVG files in `website/assets/icons/`, fetched from pinned sources; they belong to their owners and only name tools the system really uses. Pages are marked `noindex` because the company is fictional; remove the `robots` meta tag from each page to allow indexing.
 
 ## Repository layout
 
 ```
 workflow.json          n8n workflow (import into n8n)
 website/
-  index.html, services.html, work.html, about.html,
-  contact.html, privacy.html, 404.html    site pages
-  styles.css, site.js, contact.js, favicon.svg
-  vercel.json          clean URLs (/services instead of /services.html)
+  index.html           the one-page site
+  privacy.html, 404.html
+  contact.js           form handling: inline errors, then POST /api/lead
+  assets/              design kit (CSS, scripts, diagram engine) and icons/
+  favicon.svg
+  vercel.json          clean URLs and redirects from the old pages
   api/lead.js          Vercel function: validate, then forward to n8n
   lib/validate.js      field validation shared by the function and tests
   test/                unit tests and site checks (npm test)
